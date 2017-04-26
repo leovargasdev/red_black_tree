@@ -29,7 +29,8 @@ class node{
         return this.sonLeft;
     }
     public node getGrandma(){
-        return this.getFather().getFather();
+        if(this.getFather() != null) return this.getFather().getFather();//Não entra caso a "root" solicitar o pai.
+        return null;
     }
     public node getUncle(){
         if(this.getGrandma() != null){
