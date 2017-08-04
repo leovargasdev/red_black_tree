@@ -13,7 +13,7 @@ class main{
         int findKey = s.nextInt();
         t.findNode(t.root, findKey);
         if(t.find != null)
-            System.out.println("achou: " + t.find.getKey());
+            System.out.println("achou: " + t.find.getKey() + ", cor: " + t.find.getColor());
         node uncle = t.find.getUncle();
         if(uncle == null)
             System.out.println("não existe tio");

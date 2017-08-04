@@ -55,13 +55,34 @@ class tree{
             case3(n);
     }
     public void case3(node n){
-        node grandPa = n.getGrandma();
-        node uncle = n.getUncle();
+        node grandPa = n.getGrandma(), uncle = n.getUncle();
+        if((uncle != null) && (uncle.getColor() == "red")){
+            n.getFather().setColor("black");
+            uncle.setColor("black");
+            grandPa.setColor("red");
+            case1(grandPa);
+        }else{
+            case4(n);
+        }
     }
     public void case4(node n){
-
+        node grandPa = n.getGrandma(), uncle = n.getUncle();
+        if((n == n.getFather().getSonRight()) && (n.getFather() == grandPa.getSonLeft())){
+            rotateLeft(n.getFather());
+            n.setSonLeft(n);
+        } else if ((n == n.getFather().getSonLeft()) && (n.getFather() == grandPa.getSonRight())){
+            rolateRight(n.getFather());
+            n.setSonRight(n);
+        }
+        case5(n);
     }
     public void case5(node n){
 
+    }
+    public void rolateRight(node n){
+
+    }
+    public void rolateLeft(node n){
+        
     }
 }
